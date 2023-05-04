@@ -1,0 +1,17 @@
+<div class="card bg-black text-white" >
+  <div class="card-body">
+    <h5 class="card-title"><%=@movie.name %></h5>
+    <p class="card-text"><%=@movie.description%></p>
+    <p class="card-subtitle mb-3 text-body-secondary year"><%=@movie.year%></p>
+  </div>
+</div>
+<hr>
+<h3 class="text-dark">Comments</h3>
+<% @movie.comments.each do |c| %>
+  <div class="mb-4">
+    <%= render 'comments/comment', comment: c %>
+  </div>
+<% end %>
+<hr>
+<%= render 'comments/form', movie: @movie %>
+

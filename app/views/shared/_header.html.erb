@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Movies</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div style="margin-left: 500px;" class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><%= link_to('Home', root_path, class: 'nav-link') %></li>
+        <li style="margin-left: 20px;" class="nav-item" ><%= link_to('Movie List', movies_path, class: 'nav-link') %></li>
+
+
+        <li style="margin-left: 20px;">
+          <% if current_user.present? %>
+              <%= link_to("Log out #{current_user&.email}", destroy_user_session_path, data: { "turbo-method": :delete }, class: 'nav-link') %>
+          <% end %>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
